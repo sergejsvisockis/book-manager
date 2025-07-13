@@ -1,0 +1,18 @@
+server:
+  port: 8082
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    type: oracle.ucp.jdbc.PoolDataSourceImpl
+    oracleucp:
+      initial-pool-size: 1
+      min-pool-size: 1
+      max-pool-size: 30
+      connection-pool-name: BookManagerApp
+      connection-factory-class-name: oracle.jdbc.pool.OracleDataSource
+    url: ${db_url:jdbc:oracle:thin:@//localhost:1521/FREEPDB1}
+    username: ${db_username:testuser}
+    password: ${db_password:password}
+
+book.queue: book_queue

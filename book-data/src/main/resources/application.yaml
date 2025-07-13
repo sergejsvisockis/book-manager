@@ -1,0 +1,12 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    driver-class-name: oracle.jdbc.OracleDriver
+    url: ${db_url:jdbc:oracle:thin:@//localhost:1521/FREEPDB1}
+    username: ${db_username:testuser}
+    password: ${db_password:password}
+  liquibase:
+    change-log: classpath:db.changelog.xml
+    clear-checksums: true

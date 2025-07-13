@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 https://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>io.github.sergejsvisockis.bookmanager</groupId>
+    <artifactId>book-manager-parent</artifactId>
+    <version>0.0.1-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <properties>
+        <maven.compiler.source>24</maven.compiler.source>
+        <maven.compiler.target>24</maven.compiler.target>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+
+        <spring-boot.version>3.5.0</spring-boot.version>
+        <oracle-spring-boot-starter-ucp.version>25.3.0</oracle-spring-boot-starter-ucp.version>
+        <oracle-spring-boot-starter-aqjms.version>25.3.0</oracle-spring-boot-starter-aqjms.version>
+    </properties>
+
+    <modules>
+        <module>book-producer</module>
+        <module>book-data</module>
+        <module>book-consumer</module>
+        <module>lib</module>
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-dependencies</artifactId>
+                <version>${spring-boot.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+
+            <dependency>
+                <groupId>com.oracle.database.spring</groupId>
+                <artifactId>oracle-spring-boot-starter-ucp</artifactId>
+                <version>${oracle-spring-boot-starter-ucp.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.oracle.database.spring</groupId>
+                <artifactId>oracle-spring-boot-starter-aqjms</artifactId>
+                <version>${oracle-spring-boot-starter-aqjms.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>io.github.sergejsvisockis.bookmanager</groupId>
+                <artifactId>lib</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <pluginManagement>
+            <plugins>
+                <plugin>
+                    <groupId>org.springframework.boot</groupId>
+                    <artifactId>spring-boot-maven-plugin</artifactId>
+                    <version>${spring-boot.version}</version>
+                </plugin>
+            </plugins>
+        </pluginManagement>
+    </build>
+
+</project>

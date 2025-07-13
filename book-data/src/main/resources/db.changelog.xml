@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-latest.xsd">
+
+    <changeSet id="1" author="svisockis">
+        <createTable tableName="book">
+            <column name="id" type="NUMBER(38, 0)">
+                <constraints nullable="false" primaryKey="true"/>
+            </column>
+            <column name="author" type="VARCHAR2(100)"/>
+            <column name="isbn" type="VARCHAR2(20)"/>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2•" author="svisockis">
+        <addColumn tableName="book">
+            <column name="title" type="VARCHAR2(45)"/>
+        </addColumn>
+    </changeSet>
+
+    <changeSet id="3" author="svisockis">
+        <createSequence sequenceName="book_seq" startValue="1000" incrementBy="1"/>
+    </changeSet>
+
+</databaseChangeLog>

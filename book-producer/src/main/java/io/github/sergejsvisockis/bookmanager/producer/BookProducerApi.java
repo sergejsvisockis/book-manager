@@ -17,14 +17,17 @@ public class BookProducerApi {
     public ResponseEntity<BookResponse> postBook(@RequestBody BookRequest request) {
 
         BookEvent book = new BookEvent();
-        book.setTitle(request.getTitle());
-        book.setAuthor(request.getAuthor());
-        book.setIsbn(request.getIsbn());
+        book.setTitle(request.title());
+        book.setAuthor(request.author());
+        book.setIsbn(request.isbn());
         bookProducer.enqueue(book);
 
         return ResponseEntity
                 .ok()
                 .body(new BookResponse(book.getTitle()));
+    }
+
+    public record BookRequest(String title, String author, String isbn) {
     }
 
     public record BookResponse(String title) {

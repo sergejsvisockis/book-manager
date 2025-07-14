@@ -1,0 +1,17 @@
+services:
+  oracle_db:
+    image: container-registry.oracle.com/database/free:latest
+    container_name: oracle_db
+    ports:
+      - "1521:1521"
+    volumes:
+      - db_data:/opt/oracle/oradata
+    networks:
+      - oracle
+
+volumes:
+  db_data:
+
+networks:
+  oracle:
+    driver: bridge

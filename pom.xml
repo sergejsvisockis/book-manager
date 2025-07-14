@@ -12,8 +12,10 @@
         <maven.compiler.source>24</maven.compiler.source>
         <maven.compiler.target>24</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven-compiler-plugin.version>3.14.0</maven-compiler-plugin.version>
 
         <spring-boot.version>3.5.0</spring-boot.version>
+        <lombok.version>1.18.38</lombok.version>
         <oracle-spring-boot-starter-ucp.version>25.3.0</oracle-spring-boot-starter-ucp.version>
         <oracle-spring-boot-starter-aqjms.version>25.3.0</oracle-spring-boot-starter-aqjms.version>
     </properties>
@@ -64,6 +66,22 @@
                 </plugin>
             </plugins>
         </pluginManagement>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>${maven-compiler-plugin.version}</version>
+                <configuration>
+                    <annotationProcessorPaths>
+                        <path>
+                            <groupId>org.projectlombok</groupId>
+                            <artifactId>lombok</artifactId>
+                            <version>${lombok.version}</version>
+                        </path>
+                    </annotationProcessorPaths>
+                </configuration>
+            </plugin>
+        </plugins>
     </build>
 
 </project>

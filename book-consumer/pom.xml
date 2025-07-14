@@ -38,6 +38,10 @@
         </dependency>
         <dependency>
             <groupId>com.oracle.database.spring</groupId>
+            <artifactId>oracle-spring-boot-starter-ucp</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>com.oracle.database.spring</groupId>
             <artifactId>oracle-spring-boot-starter-aqjms</artifactId>
         </dependency>
 
